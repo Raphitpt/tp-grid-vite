@@ -1,0 +1,33 @@
+html {
+  font-size: 1rem;
+  font-family: Aptos;
+}
+
+.element {
+  background: lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+$types: alkaliMetal lanthanide nobleGas transitionMetal postTransitionMetal
+  alkalineEarthMetal actinide metalloid otherNonMetal;
+
+$element-colors: (
+  alkaliMetal: hsl(48deg, 77%, 64%),
+  lanthanide: hsl(42deg, 62%, 76%),
+  nobleGas: hsl(300deg, 44%, 82%),
+  transitionMetal: hsl(12deg, 87%, 85%),
+  postTransitionMetal: hsl(192deg, 62%, 80%),
+  alkalineEarthMetal: hsl(60deg, 83%, 67%),
+  actinide: hsl(340deg, 67%, 88%),
+  metalloid: hsl(165deg, 58%, 76%),
+  otherNonMetal: hsl(120deg, 73%, 74%),
+);
+
+@each $type in $types {
+  .element--#{$type} {
+    background: map-get($element-colors, $type);
+  }
+}
