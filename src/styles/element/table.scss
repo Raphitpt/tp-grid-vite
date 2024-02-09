@@ -10,10 +10,17 @@
 }
 
 @include large {
-  body {
-    min-height: 100vh;
-  }
   main {
-    min-height: 100vh;
+    min-height: 90vh;
+  }
+  @for $i from 1 through 8 {
+    .element[data-period="#{$i}"] {
+      grid-row: #{$i};
+    }
+  }
+  @for $y from 1 through 18 {
+    .element[data-group="#{$y}"] {
+      grid-column: #{$y};
+    }
   }
 }
